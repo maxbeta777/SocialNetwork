@@ -1,0 +1,16 @@
+
+
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block user %}
+<div class="large-8 columns">
+{% for user in users %}
+    <h6>Дата приема на работу: {{ user.date_startwork }}</h6>
+    <h4>ФИО <a href="/users/get/{{ user.id }}/">{{ user.user_fio }}</a></h4>
+    <p>Фирма рабочего: {{ user.firm_name }}</p>
+    <p>Оценка: <a href="/users/addlike/{{ user.id }}/"><img src="{% static "1.jpeg" %}" width="25px" height="25px"></a>{{ user.user_likes }}</p>
+    <hr>
+{% endfor %}
+     </div>
+{% endblock %}
