@@ -20,16 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+gf^u^-!t3p$gy_*lg@=kuf!4l#^l7g-9o60ap#1e72wq_a*u='
+SECRET_KEY = '(97#-)fmbef7x8ypn&f%0i7(-4rd-8ivtx$d%ff^e)6)cn6sqd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#D:/GITSocialNetwork/SocialNetwork/social_network_project/src/kyrs/loginsys/templates
+
 ALLOWED_HOSTS = []
-TEMPLATE_DIRS = ('kyrs/templates',
-'kyrs/user/templates',
-'D:/GITSocialNetwork/SocialNetwork/social_network_project/src/kyrs/loginsys/templates',
-)
+
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -39,8 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user',
-    'loginsys',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,9 +54,8 @@ ROOT_URLCONF = 'kyrs.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates', #не работало с mysql
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,7 +77,7 @@ WSGI_APPLICATION = 'kyrs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'my_dbb.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -90,7 +85,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'ru-RU '
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -106,6 +101,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    ('static', 'D:/GITSocialNetwork/SocialNetwork/social_network_project/src/kyrs/static'),
-)
+STATICFILES_DIRS =(os.path.join(BASE_DIR,'static',),)
