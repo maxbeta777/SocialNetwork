@@ -9,7 +9,7 @@ html, body{
 }
 
 .general-container{
-    background: url('img/bg_image.jpg');
+    background: url('img/bg_image1.jpg');
     height: 100%;
 }
 
@@ -25,13 +25,24 @@ html, body{
 .btn-orange{
     background-color: #e8643e;
     border: none;
+
 }
 
 .btn-orange:hover{
     background-color: #dc5129;
     border: none;
 }
+.btn-send-guest{
+    background: rgba(255, 255, 255, 0);
+    border-radius: 8px;
+    border-color: #dc5129
+}
 
+.btn-send-guest:hover{
+    background: rgba(214, 111, 51, 0.5);
+    border-radius: 8px;
+    border-color: #dc5129
+}
 .title{
     text-align: center;
     color: white;

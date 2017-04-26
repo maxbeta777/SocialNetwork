@@ -21,4 +21,8 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('landing.urls')),
+    url(r'^', include('user.urls')),
+    url(r'^', include('relationship.urls')),
+    url(r'^', include('post.urls')),
+    url(r'^', include('recipe.urls')),
 ]

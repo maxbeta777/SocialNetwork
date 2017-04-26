@@ -1,18 +1,22 @@
-from django.conf.urls import patterns, include, url
+"""test_project URL Configuration
 
-urlpatterns = patterns('',
-                       # Examples:
-                       # url(r'^$', 'firstapp.views.home', name='home'),
-                       # url(r'^blog/', include('blog.urls')),
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.10/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.conf.urls import url, include
+    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+"""
+from django.conf.urls import url, include
+from django.contrib import admin
+from . import views
 
-                       url(r'^1/', 'user.views.basic_one'),
-                       url(r'^2/', 'user.views.template_two'),
-                       url(r'^3/', 'user.views.template_three_simple'),
-                       url(r'^users/all/$', 'user.views.users'),
-                       url(r'^users/get/(?P<article_id>\d+)/$', 'user.views.user'),
-                       url(r'^users/addlike/(?P<article_id>\d+)/$', 'user.views.addlike'),
-                       url(r'^users/addcomment/(?P<article_id>\d+)/$', 'user.views.addcomment'),
-                       url(r'^page/(\d+)/$', 'user.views.users'),
-                       url(r'^', 'user.views.users'),
-
-                       )
+urlpatterns = [
+ #   url(r'^landing/', views.landing, name='landing'),
+]

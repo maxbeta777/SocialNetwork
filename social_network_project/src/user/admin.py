@@ -1,18 +1,25 @@
 from django.contrib import admin
-from user.models import User, Comments
-# Register your models here.
 
+from .models import *
 
-class ArticleInline(admin.StackedInline):
-    model = Comments
-    extra = 1
+"""
+class GuestAdmin(admin.ModelAdmin):
+    # list_display = [field.name for field in Guest._meta.fields]
+    list_display = ["id", "name", "email"]
+    list_filter = ['name', ]
+    search_fields = ['name', 'email']
 
+    fields = ["email"]
 
-class ArticleAdmin(admin.ModelAdmin):
-    fields = ['user_fio', 'firm_name', 'date_startwork', 'users_salary', 'users_experience']
-    inlines = [ArticleInline]
-    list_filter = ['date_startwork']
+    # exclude = ["email"]  # настройка на странице редактирования. исключили имейл
+    # inlines = [FieldMappingInline]
+    # fields = ["email"]  # настройка на странице редактирования. показываем только имейл
+    # #list_filter = ('report_data',)  # фильтрация
+    # search_fields = ['category', 'subCategory', 'suggestKeyword'] # поиск по заданным критериям
 
-admin.site.register(User, ArticleAdmin)
+    class Meta:
+        model = Guest
 
-
+admin.site.register(Guest, GuestAdmin)  # регистрация модели Guest
+# admin.site.register(Guest)  # регистрация модели Guest
+"""

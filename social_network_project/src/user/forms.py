@@ -1,8 +1,10 @@
-from django.forms import ModelForm
-from user.models import Comments
+from django import forms
+from .models import *
 
-class CommentForm(ModelForm):
+
+class UserForm(forms.ModelForm):
+
     class Meta:
-        model = Comments
-        fields = ['comments_text']
-        #exclude = ['comments_article']
+        model = User
+        exclude = [""]
+
