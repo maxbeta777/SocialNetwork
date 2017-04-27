@@ -1,24 +1,35 @@
 from django.contrib import admin
 from .models import *
-"""
 
-class GuestAdmin(admin.ModelAdmin):
-    # list_display = [field.name for field in Guest._meta.fields]
-    list_display = ["id", "name", "email"]
-    list_filter = ['name', ]
-    search_fields = ['name', 'email']
 
-    fields = ["email"]
+class PostImageInline(admin.TabularInline):
+    model = PostImage
+    extra = 0
 
-    # exclude = ["email"]  # настройка на странице редактирования. исключили имейл
-    # inlines = [FieldMappingInline]
-    # fields = ["email"]  # настройка на странице редактирования. показываем только имейл
-    # #list_filter = ('report_data',)  # фильтрация
-    # search_fields = ['category', 'subCategory', 'suggestKeyword'] # поиск по заданным критериям
+class PostAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Post._meta.fields]
+    inlines = [PostImageInline]
 
     class Meta:
-        model = Guest
+        model = Post
 
-admin.site.register(Guest, GuestAdmin)  # регистрация модели Guest
-# admin.site.register(Guest)  # регистрация модели Guest
-"""
+admin.site.register(Post, PostAdmin)
+
+
+class PostImageAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in PostImage._meta.fields]
+
+    class Meta:
+        model = PostImage
+
+admin.site.register(PostImage, PostImageAdmin)
+
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Comment._meta.fields]
+
+    class Meta:
+        model = Comment
+
+admin.site.register(Comment, CommentAdmin)
+

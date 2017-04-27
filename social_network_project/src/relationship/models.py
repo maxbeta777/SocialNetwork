@@ -5,10 +5,11 @@ from user.models import UserImage
 
 class Relationship (models.Model):
     user = models.ForeignKey(User, blank=True, null=True, default=None)
-    userImage = models.ForeignKey(UserImage, blank=True, null=True, default=None)
+    userFan = models.ForeignKey(UserImage, blank=True, null=True, default=None)
 
     def __str__(self):
-        return "Подписчик %i %s %s %s" % (self.id, self.user.surname, self.user.name, self.userImage.image)
+        return "Подписчик %i %s %s %s" % (self.id, self.userFan.user.surname, self.userFan.user.name,
+                                          self.userFan.image)
         # отображение в админке
 
     class Meta:

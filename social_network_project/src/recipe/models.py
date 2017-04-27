@@ -6,6 +6,7 @@ class Recipe(models.Model):
         verbose_name = 'Recipe'
         verbose_name_plural = 'Recipes'
 
+    name = models.CharField(max_length=200, blank=True, null=True, default=None)
     calorie = models.IntegerField(default=0)
     ingredients = models.TextField(blank=True, null=True, default=None)
     recipe = models.TextField(blank=True, null=True, default=None)
@@ -13,4 +14,4 @@ class Recipe(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
-        return " %s" % self.id
+        return "%s %s" % (self.id, self.name)

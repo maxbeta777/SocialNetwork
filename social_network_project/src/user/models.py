@@ -13,7 +13,7 @@ class StatusOfUser(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
-        return " %s" % self.name
+        return " %s" % self.description
 
 
 class User(models.Model):
@@ -32,7 +32,7 @@ class User(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return "Пользователь %s %s" % (self.id,  self.status.description)
+        return "Пользователь %s %s %s %s" % (self.id, self.name, self.surname, self.status.description)
 
 
 class UserImage(models.Model):
@@ -48,6 +48,6 @@ class UserImage(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
-        return " %s" % self.id
+        return " %s %s %s" % (self.id, self.user.name, self.user.surname)
 
 

@@ -15,7 +15,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return "Пост %s" % self.id
+        return "Пост %s %s" % (self.id, self.recipe.name)
 
 
 class PostImage(models.Model):
